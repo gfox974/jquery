@@ -1,0 +1,63 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <style>
+        .avion{ background: yellow; padding: 50px; color: white; }
+        #div5{ background: black; padding: 50px; color: white; }
+        #div6{ background: blue; padding: 50px; color: white; }
+        #div10{ background: brown; padding: 50px; color: white; }
+        #div11{ background: tomato; padding: 50px; color: white; }
+        #div15{ background: purple; padding: 50px; color: white; }
+        hr{ margin: 50px 0; }
+       .premier + h1 + h1{
+          font-size: 50px;}
+    </style>
+</head>
+    <body>
+        <h1 class="premier">Titre h1</h1>
+        <h1>Titre 2</h1>
+        
+        <div class="avion"> AirBus1 </div>
+        <div class="avion"> AirBus2 </div>
+        <div class="avion"> AirBus3 </div>        <div class="voiture">Voiture1</div>
+        <div class="voiture">Voiture2</div>
+        <div class="voiture">Voiture3</div>
+        
+        <table border="1">
+          <tr><td>TD #0</td><td>TD #1</td><td>TD #2</td></tr>
+          <tr><td class="cell">TD #3</td><td>TD #4</td><td>TD #5</td></tr>
+          <tr><td>TD #6</td><td>TD #7</td><td>TD #8</td></tr>
+        </table>        <p>paragraphe 1</p>
+        <p>paragraphe 2 </p>
+        <p>paragraphe 3 </p>
+        <p>paragraphe 4 </p>
+        <p>paragraphe 5 </p>        <section id="masection">Section</section>
+        
+        <article>article</article>
+        
+        <aside>aside</aside>        <span>span</span>        <div id="resultat">resultat...</div>
+    </body>
+    <script>    
+//    --------------- LISTE DES EVENEMENTS JQUERY => https://api.jquery.com/category/events///----------------- EVENEMENT DOM CHARGE  https://api.jquery.com/ready/
+    $(document).ready(function(){
+       alert($);        
+       jQuery("table").next().css("color", "red");
+       jQuery("table").find("cell").slideDown();
+    });
+//----------------- EVENEMENT ONCLICK  https://api.jquery.com/click/
+    $( "h1" ).on( "click", function() {
+        alert( $( this ).text() );
+    });
+//----------------- EVENEMENT HOVER  https://api.jquery.com/hover/
+    $('.avion').hover(function(){
+        $(this).css( "background", "orange" );
+    });
+//----------------- EVENEMENT MOUSEENTER+MOUSELEAVE  https://api.jquery.com/mouseenter/ + https://api.jquery.com/mouseleave/
+    $('table')
+        .mouseenter(function(){
+            alert('vous êtes dans la table');
+        })
+        .mouseleave(function(){
+            alert('vous êtes en dehors de la table');
+        });
+    </script>

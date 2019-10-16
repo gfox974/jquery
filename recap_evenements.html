@@ -1,0 +1,105 @@
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<style>
+		.avion{ background: yellow; padding: 50px; color: white; }
+		#div5{ background: black; padding: 50px; color: white; }
+		#div6{ background: blue; padding: 50px; color: white; }
+		#div10{ background: brown; padding: 50px; color: white; }
+		#div11{ background: tomato; padding: 50px; color: white; }
+		#div15{ background: purple; padding: 50px; color: white; }
+		hr{ margin: 50px 0; }
+        .premier + h1 + h1{
+            font-size: 70px;
+        }
+        .cell{
+            font-size: 50px;
+        }
+	</style>
+</head>
+	<body>
+		<h1 class="premier">Titre h1</h1>
+		<h1>Titre 2</h1>
+		<h2>Titre 3</h2>
+        <h1>Titre 4</h1>
+        
+		<div class="avion"> AirBus1 </div>
+		<div class="avion"> AirBus2 </div>
+		<div class="avion"> AirBus3 </div>
+
+		<div class="voiture">Voiture1</div>
+		<div class="voiture">Voiture2</div>
+		<div class="voiture cell">Voiture3</div>
+		
+		<table border="1">
+		  <tr><td>TD #0</td><td>TD #1</td><td>TD #2</td></tr>
+		  <tr><td class="cell">TD #3</td><td>TD #4</td><td>TD #5</td></tr>
+		  <tr><td>TD #6</td><td>TD #7</td><td class="cell">TD #8</td></tr>
+		</table>
+
+		<p>paragraphe 1</p>
+		<p>paragraphe 2 </p>
+		<p>paragraphe 3 </p>
+		<p>paragraphe 4 </p>
+		<p>paragraphe 5 </p>
+
+		<section id="masection">Section</section>
+		
+		<article>article</article>
+		
+		<aside>aside</aside>
+
+		<span>span</span>
+
+		<div id="resultat">resultat...</div>
+	</body>
+	<script>	
+//	--------------- LISTE DES EVENEMENTS JQUERY => https://api.jquery.com/category/events/
+
+//----------------- EVENEMENT DOM CHARGE  https://api.jquery.com/ready/
+	$(document).ready(function(){
+        // alert($);	
+        jQuery("table").next().css("color", "red");
+        jQuery("table").find(".cell").css("color", "blue");
+	});
+//----------------- EVENEMENT ONCLICK  https://api.jquery.com/click/
+	$( "h1" ).on( "click", function() {
+		alert( $( this ).text() );
+	});
+//----------------- EVENEMENT HOVER  https://api.jquery.com/hover/
+	$('.avion').hover(function(){
+		$(this).css( "background", "orange" );
+	});
+//----------------- EVENEMENT MOUSEENTER+MOUSELEAVE  https://api.jquery.com/mouseenter/ + https://api.jquery.com/mouseleave/
+	$('table')
+		.mouseenter(function(){
+			alert('vous êtes dans la table');
+		})
+		.mouseleave(function(){
+			alert('vous êtes en dehors de la table');
+		});
+	</script>
+
+<table border="1" cellpadding="5" style="border-collapse: collapse;"><tbody><tr><th>Evénement</th><th>Description</th></tr>
+<tr><td><b>Abort</b> <br>(onabort)</td><td>Cet événement a lieu lorsque l'utilisateur interrompt le chargement de l'image</td></tr>
+<tr><td><b>Blur</b> <br>(onblur)</td><td>Se produit lorsque l'élément perd le focus, c'est-à-dire que l'utilisateur clique hors de cet élément, celui-ci n'est alors plus sélectionné comme étant l'élément actif.</td></tr><tr><td><b>Change</b> 
+<br>(onchange)</td><td>Se produit lorsque l'utilisateur modifie le contenu d'un champ de données.</td></tr><tr><td> <b>Click</b> 
+<br>(onclick)</td><td> Se produit lorsque l'utilisateur clique sur l'élément associé à l'événement.</td></tr><tr><td> <b>Dblclick</b> 
+<br>(ondblclick)</td><td> Se produit lorsque l'utilisateur double-clique sur l'élément associé à l'événement (un lien hypertexte ou un élément de formulaire).</td></tr><tr><td><b>Dragdrop</b> 
+<br>(ondragdrop)</td><td>Se produit lorsque l'utilisateur effectue un <i>glisser-déposer</i> sur la fenêtre du navigateur.</td></tr><tr><td><b>Error</b> 
+<br>(onerror)</td><td>Se déclenche lorsqu'une erreur apparaît durant le chargement de la page.</td></tr><tr><td><b>Focus</b> 
+<br>(onfocus)</td><td>Se produit lorsque l'utilisateur donne le focus à un élément, c'est-à-dire que cet élément est sélectionné comme étant l'élément actif</td></tr><tr><td><b>keydown</b> 
+<br>(onkeydown)</td><td>Se produit lorsque l'utilisateur appuie sur une touche de son clavier.</td></tr><tr><td><b>keypress</b> 
+<br>(onkeypress)</td><td>Se produit lorsque l'utilisateur maintient une touche de son clavier enfoncée.</td></tr><tr><td><b>keyup</b> 
+<br>(onkeyup)</td><td>Se produit lorsque l'utilisateur relâche une touche de son clavier préalablement enfoncée.</td></tr><tr><td><b>Load</b> 
+<br>(onload)</td><td>Se produit lorsque le navigateur de l'utilisateur charge la page en cours</td></tr><tr><td><b>mousedown</b> 
+<br>(mousedown)</td><td>Se produit lorsque l'utilisateur clique un élément</td></tr><tr><td><b>mouseup</b> 
+<br>(mouseup)</td><td>Se produit lorsque l'utilisateur relache le clique</td></tr><tr><td><b>Mouseover</b> 
+<br>(onmouseover)</td><td>Se produit lorsque l'utilisateur positionne le curseur de la souris au-dessus d'un élément</td></tr><tr><td><b>Mouseout</b> 
+<br>(onmouseOut)</td><td>Se produit lorsque le curseur de la souris quitte un élément.</td></tr><tr><td><b>Reset</b> 
+<br>(onreset)</td><td>Se produit lorsque l'utilisateur efface les données d'un formulaire à l'aide du bouton Reset.</td></tr><tr><td><b>Resize</b> 
+<br>(onresize)</td><td>Se produit lorsque l'utilisateur redimensionne la fenêtre du navigateur</td></tr><tr><td><b>Select</b> 
+<br>(onselect)</td><td>Se produit lorsque l'utilisateur sélectionne un texte (ou une partie d'un texte) dans un champ de type "text" ou "textarea"</td></tr><tr><td><b>Input</b> 
+<br>(oninput)</td><td>Se produit lorsque l'utilisateur écrit ou modifie la valeur d'un input</td></tr><tr><td><b>Submit</b> 
+<br>(onsubmit)</td><td>Se produit lorsque l'utilisateur clique sur le bouton de soumission d'un formulaire (le bouton qui permet d'envoyer le formulaire)</td></tr><tr><td><b>Unload</b> 
+<br>(onunload)</td><td>Se produit lorsque le navigateur de l'utilisateur quitte la page en cours</td></tr></tbody></table>

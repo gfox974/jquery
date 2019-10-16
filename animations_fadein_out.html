@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <title>Animation</title>
+<!-- in css -->
+<style>
+.rouge {
+    background-color: red;
+}
+.bleu {
+    background-color:blue;
+}
+.vert {
+    background-color:green;
+}
+.cache {
+    display: none;
+}
+.fadein {
+    display: none;
+}
+div {
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+}
+
+#barre, #barre2 {
+    background-color: cyan;
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+    height: 20px;
+    width: 100%;
+}
+#rideau {
+    display: none;
+    height: 100px;
+    background-color: lightblue;
+    border: 1px dotted black;
+    text-align: center;
+    width: 100%;
+}
+</style>
+<script>
+$(document).ready(function() {
+// autre syntaxe du ready : (function() { marche aussi
+    // le ready doit englober les declarations de fonctions, il n'est pas necessaire si l'integration se fait hors header car on a pas besoin de precharger les fonctions
+
+    $("#fadein").click(function(){ // equivalent des eventhandlers
+        $(".rouge.fadein").fadeIn(2000);
+        $(".bleu.fadein").fadeIn("slow");
+        $(".vert.fadein").fadeIn();
+    });
+
+    $("#fadeout").click(function(){
+        $(".rouge.fadeout").fadeOut(2000);
+        $(".bleu.fadeout").fadeOut("slow");
+        $(".vert.fadeout").fadeOut();
+    });
+
+    $("#fadetoggle").click(function(){
+        $(".rouge.fadetoggle").fadeToggle(2000);
+        $(".bleu.fadetoggle").fadeToggle("slow");
+        $(".vert.fadetoggle").fadeToggle();
+    });
+
+    $("#fadeto").click(function(){
+        $(".rouge.fadeout").fadeTo("slow",1);
+        $(".bleu.fadeout").fadeTo("slow",0.3);
+        $(".vert.fadeout").fadeTo("slow",0);
+    });
+    // slides
+    $("#barre").click(function(){
+        $("#rideau").slideDown("slow");      
+    });
+
+    $("#barre2").click(function(){
+        $("#rideau").slideUp("slow");      
+    });
+
+    $("#switchslide").click(function(){
+        $("#rideau").slideToggle("slow");      
+    });
+
+    $("#switchslide2").click(function(){
+        $("#rideau, .rouge, .vert, .bleu").slideToggle("slow");      
+    });
+    // partie sample, exo
+    $("#btn-simple").click(function(){
+        $("#simple").animate({top:"100px"}, "slow"); // ici, l'element concerné descends de 100px par rapport a son top de depart
+    });
+
+});
+</script>
+
+</head>
+<body>
+    <h1>Animations</h1>
+<hr>
+<button id="switchslide2">test - Toggle toutes les fades</button>
+<hr>
+    <h2>Les animations FADE</h2>
+<hr>
+    <button id="fadein">Fade-in</button> <!-- effet d'apparition lineaire -->
+        <div class="rouge fadein cache"></div>
+        <div class="bleu fadein cache"></div>
+        <div class="vert fadein cache"></div>
+<hr>
+    <button id="fadeout">Fade-out</button> <!-- effet de disparition lineaire -->
+        <div class="rouge fadeout"></div>
+        <div class="bleu fadeout"></div>
+        <div class="vert fadeout"></div>
+<hr>
+    <button id="fadetoggle">Fade-toggle</button> <!-- switch d'apparition / disparition lineaire -->
+        <div class="rouge cache fadetoggle"></div>
+        <div class="bleu cache fadetoggle"></div>
+        <div class="vert cache fadetoggle"></div>
+<hr>
+    <button id="fadeto">Fade to</button> <!-- effet de disparition en transparence (via opacity) -->
+        <div class="rouge fadeout"></div>
+        <div class="bleu fadeout"></div>
+        <div class="vert fadeout"></div>
+        
+<hr>
+    <h3>Les animations SLIDE</h3>
+<hr>
+    <button id="switchslide">Toggle slide</button>
+    <div id="barre">Cliquez ici pour descendre le rideau</div>
+    <div id="rideau">Rideau déroulé</div>
+    <div id="barre2">Cliquez ici pour remonter le rideau</div>
+
+    <!-- SAMPLE cours-->
+    <h3>Les animations "ANIMATE"</h3>
+    <p>Les animations de type Animate, agissent sur les propriétés de positionnement CSS.</p>
+    <p>Comme en CSS les positionnements à défaut des éléments sont "static" et qu'on ne peut par leur attribuer des propriétés TOP, LEFT, RIGHT ou BOTTOM, il faut d'abord, s'assurer que les positionnements des éléments que l'on va animer sont bien sur "relative", "absolute" ou "fixed".</p>
+    <button id="btn-simple" style="margin-bottom: 5px;">Simple</button>
+    <div id="simple" style="position: relative; 
+                            width: 200px; 
+                            height: 100px; 
+                            background-color: #3a9fa0; 
+                            border: 1px solid black; 
+                            text-align: center; 
+                            line-height: 100px; 
+                            padding: 10px">Animation Simple</div>
+    <hr />
+    <button id="btn-double" style="margin-bottom: 5px;">Double</button>
+    <div id="double" style="position: relative; 
+                            line-height: 100px; width: 200px; height: 100px; background-color: #18e0aa; border: 1px solid black; text-align: center; padding: 10px">Animation Double</div>
+    <hr />
+    <button id="btn-agg" style="margin-bottom: 5px;">Agrandissement</button>
+    <div id="agg" style="position: relative; line-height: 100px; width: 200px; height: 100px; background-color: #d31a8b; border: 1px solid black; text-align: center; padding: 10px">Aggrandissement</div>
+    <hr />
+    <button id="btn-toggle" style="margin-bottom: 5px;">Toggle</button>
+    <div id="toggle" style="position: relative; line-height: 100px; width: 200px; height: 100px; background-color: #e9802b; border: 1px solid black; text-align: center; padding: 10px">Toggle</div>
+    <hr />
+    <button id="btn-etape" style="margin-bottom: 5px;">Etape</button>
+    <div id="etape" style="position: relative; line-height: 100px; width: 200px; height: 100px; background-color: #a2d84c; border: 1px solid black; text-align: center; padding: 10px">A notre tour !</div>
+    <hr />
+    <button id="btn-etape2" style="margin-bottom: 5px;">Etape 2</button>
+    <div id="etape2" style="position: relative; line-height: 100px; width: 200px; height: 100px; background-color: #87c1e9; border: 1px solid black; text-align: center; padding: 10px">Disparition !</div>
+
+     
+</body>
+</html>
