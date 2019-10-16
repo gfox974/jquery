@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slideToggle</title>
+<style>
+    html,body,h1,h2,h3,h4,h5,h6,p,ol,ul,li,a,section,article,aside,form,header,input,footer{	margin:0; 	padding:0;}
+    body{text-align: center;}
+    header{background-color: hotpink; min-height:100%;}
+    header, section {margin: 0 auto; width: 700px;}
+    section {background-color: khaki; min-height: 550px;}
+    h1{ border: 1px solid black}
+    button { padding: 10px; border-radius: 5px;}
+</style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+        $(function() {
+            $("button").click(function() {
+                $("img").slideToggle("slow");
+            })
+        })
+    });
+</script>
+
+</head>
+<body>
+    <header></header>
+    <section>
+        <article>
+            <h1>JQuery Toggle</h1>
+        </article>
+        <article>
+            <button>Cliquez ici</button><br>
+            <img src="./image/img/image5.jpg" alt="">
+            <img src="./image/img/image6.jpg" alt="">
+            <img src="./image/img/image7.jpg" alt="">
+        </article>
+    </section>
+</body>
+
+
+</html>

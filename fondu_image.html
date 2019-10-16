@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+
+		<style>
+			fieldset{width: 800px;margin: 0 auto;}
+			legend{font: 25px Helvetica, Arial, sans-serif;}
+			h2{font: 17px Helvetica, Arial, sans-serif;}
+			ul.hover_block li{list-style:none;float:left;background: #fff;padding: 10px;width:300px; position: relative;margin-right: 20px; }
+			ul.hover_block li a {display: block;position: relative;overflow: hidden;height: 150px;width: 268px;padding: 16px;color: #000;font: 15px Helvetica, Arial, sans-serif;}
+			ul.hover_block li a { text-decoration: none; }
+			ul.hover_block li img {position: absolute;top: 0;left: 0;border: 0;}
+		</style>
+
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		
+	</head> 
+    <body> 
+	<fieldset>
+	<legend>Portfolio</legend>
+	<ul class="hover_block">
+			<li><h2>Projet 1</h2><a href="#"><img src="./image/img/image1.jpg" alt="alt" legend="text ici">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac pellentesque neque.</a></li>
+			<li><h2>Projet 2</h2><a href="#"><img src="./image/img/image2.jpg" alt="alt">2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac pellentesque neque.</a></li>
+			<li><h2>Projet 3</h2><a href="#"><img src="./image/img/image3.jpg" alt="alt">3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac pellentesque neque.</a></li>
+			<li><h2>Projet 4</h2><a href="#"><img src="./image/img/image4.jpg" alt="alt">4. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac pellentesque neque.</a></li>
+			<li><h2>Projet 5</h2><a href="#"><img src="./image/img/image5.jpg" alt="alt">5. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac pellentesque neque.</a></li>
+		</ul>
+	</fieldset>
+	</body>
+		<script>
+		$(function() {
+			$('ul.hover_block li').hover(function(){
+				$(this).find('img').animate({opacity:"0.1", borderRadius: "10px"} , {queue:false,duration:300});
+			
+			}, function(){
+				$(this).find('img').animate({opacity:"1"} , {queue:false,duration:800});
+			});
+		});
+		</script>
+	</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Titre 1</h1>
+
+    <div class="avion">AirBus 1</div>
+    <div class="avion">AirBus 2</div>
+    <div class="avion">AirBus 3</div>
+
+    <div class="voiture">Voiture 1</div>
+    <div class="voiture">Voiture 2</div>
+    <div class="voiture">Voiture 3</div>
+
+    <section id="masection">Section</section>
+    <article>article</article>
+    <aside>aside</aside>
+    <span>span</span>
+
+    <table>
+        <tr>
+            <td>TD 0</td>
+            <td>TD 1</td>
+            <td>TD 2</td>
+        </tr>
+        <tr>
+            <td>TD 3</td>
+            <td>TD 4</td>
+            <td>TD 5</td>
+        </tr>
+        <tr>
+            <td>TD 6</td>
+            <td>TD 7</td>
+            <td>TD 8</td>
+        </tr>
+    </table>
+    <span>span</span>
+    <div id="resultat">Resultat</div>
+</body>
+<script type = "text/javascript">
+let maBalise = $ ("span");
+console.log("ma balise" + maBalise);
+$("span").css("color", "purple");
+maBalise.css("background-color", "orange");
+$(maBalise).css("font-size", "20px");
+
+$("td").css({backgroundColor: "red", padding:"20px", color:"green", border:"solid 1px black"});
+
+$("td:eq(2)").css("background-color", "gold");
+$("td:first").css({backgroundColor: "gold"})
+
+
+$(".voiture").css({background:"blue", border:"solid 2px black", textAlign:"center", padding:"15px"});
+$(".voiture:eq(1)").css({color: "red"});
+$(".voiture:eq(2)").css({color: "green"});
+
+
+$("#masection").css({padding:"10px", color:"gold"});
+</script>
+</html> 
