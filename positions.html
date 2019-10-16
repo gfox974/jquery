@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <title>Positions</title>
+
+    <style>
+        body {
+            font-size: 30px;
+        }
+        #base {
+            height: 900px;
+            width: 900px;
+            background-color: violet;
+            margin: 20px 50px;
+        }
+        #relative {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            background-color: brown;
+        }
+        #absolute {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            background-color: red;
+        }
+        .pos {
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="base">
+    <div id="relative" class="pos">
+        dans div relative
+        <div id="absolute" class="pos">
+            <span>Span dans div absolute</span>
+        </div>
+    </div>
+    <div class="pos" style="background-color: yellow; height: 150px; width: 150px;">
+        <p>P dans div</p>
+    </div>
+</div>
+    
+</body>
+</html>

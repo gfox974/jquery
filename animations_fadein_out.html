@@ -95,7 +95,44 @@ $(document).ready(function() {
         $("#simple").animate({top:"100px"}, "slow"); // ici, l'element concerné descends de 100px par rapport a son top de depart
     });
 
+    $("#btn-double").click(function(){
+        $("#double").animate({top:"200px", left:"100px"}, "slow");
+    });
+
+    $("#btn-agg").click(function(){
+        $("#agg").animate({height:"200px",width:"400px",lineHeight:"100px"}, "slow");
+    });
+
+    $("#btn-toggle").click(function(){
+        $("#toggle").animate({height:"toggle",width:"toggle","line-height":"toggle"}, "slow");
+    });
+
+    $("#btn-etape").click(function(){ // animations successives
+        $("#etape").animate({height:"200px",width:"400px"}, 1000);
+        $("#etape").animate({lineHeight:"200px",fontSize:"200%"}, 1000);
+    });
+
+    $("#btn-etape2").click(
+		function(){
+			$("#etape2").animate({"height":"200px", "line-height":"200px"},700);
+			$("#etape2").animate({"width":"400px"},700);
+			$("#etape2").animate({"left":"400px"},700);
+			$("#etape2").animate({"top":"-250px"},600);							
+			$("#etape2").animate({"fontSize":"400%"},600);
+			$("#etape2").animate({"opacity":0},1000);
+    });
+    
+    $("#disapall").click( // exo : faire disparaitre la page en la faisant glisser hors champ gauche
+		function(){
+            $("body").css({position:"absolute"}); // ici on change l'attribut de type de position
+            $("body").animate({left:"-100%"},1000); // puis on anime
+            $("body").animate({left:"0"},1000); 
+	});
 });
+// Todo :
+// utiliser 
+// addClass / trouver la methode contraire
+// attr - before - after 
 </script>
 
 </head>
@@ -103,6 +140,7 @@ $(document).ready(function() {
     <h1>Animations</h1>
 <hr>
 <button id="switchslide2">test - Toggle toutes les fades</button>
+<button id="disapall">test - Disparition page</button>
 <hr>
     <h2>Les animations FADE</h2>
 <hr>
