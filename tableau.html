@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <title>Tableaux</title>
+    <style>
+
+    </style>
+
+    <script>
+        $(document).ready(function() {
+        // remplir un tableau avec des valeurs de 1 à 10
+        let varTableau = [];
+        $("#result").after('<tr id="x2"></tr>');
+        // (2) possible aussi pour rattacher à un nouvel element sans id :
+        // 2) $("table").append("<tr></tr>");
+        for (i=0;i<10;i++) {
+            varTableau[i] = i+1;
+            console.log(varTableau[i]);
+            $("#result").append("<td>" + varTableau[i] + "</td>");
+            $("#x2").append("<td>" + varTableau[i] * 2 + "</td>");
+            // 2) $("tr:eq[1]").append("<td>" + varTableau[i] * 2 + "</td>"); -- ici on rattache donc au second element tr les valeurs
+        }
+        console.log(varTableau);
+
+        });
+    </script>
+</head>
+<body>
+    <!-- Alimenter le tableau avec le resultat de fonction -->
+    <table border=1>
+        <tr id="result"> ici tr </tr>
+    </table>
+</body>
+</html>

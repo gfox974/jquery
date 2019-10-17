@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <title>Calendrier</title>
+<!-- afficher chaque jour de la semaine dans une table -->
+    <script>
+        $(document).ready(function() {
+
+            let semaine = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
+            $("body").append("<table></table>");
+            //$("table").append("<tr></tr>");
+
+            //for (i=0;i<semaine.length;i++) {
+            //    console.log("debug:",i,semaine[i]);
+            //    $("tr:eq(0)").append("<td>" + semaine[i] + "</td>");
+            //}
+
+            // 1) Autre exo : un jour = une ligne (th)
+            // 2) afficher dans une td le numero du jour
+            //for (i=0;i<semaine.length;i++) {
+            //    console.log("debug: index",i,"valeur:",semaine[i]);
+            //    $("table").append("<tr></tr>");
+            //    $(`tr:eq(${i})`).append("<th>" + semaine[i] + "</th>");
+                // ou version non dynamique : $("table").append("<tr><th>" + semaine[i] + "</th></tr>");
+            //}
+
+            let mois = 31; // nombre de jours par mois
+            let firstday = 0; // en se basant sur la liste des jours, ici lundi
+            // - ici  test une semaine - 
+            //for (i=firstday;i<semaine.length;) {
+            //    $(`tr:eq(${i})`).append("<td>"+ (i+1) +"</td>");
+            //    i = i+1;
+            //}
+            // ici tout le mois
+            for (let compteur=0; compteur < semaine.length; compteur++){
+                let th = "<th>" + semaine[compteur] + "</th>",
+                    td = "",
+                    date=0,
+                    compteurSemaine=0;
+                while(date <= 24) {
+                    date = (compteur+1) + (compteurSemaine*7);
+                    compteurSemaine ++;
+                    td += "<td>" + date + "</td>";
+                }
+                $("table").append("<tr>" + th + td + "</tr>");
+            }
+
+        });
+    </script>
+    <style>
+        td, th, tr {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
+</head>
+<body>
+    
+</body>
+</html>

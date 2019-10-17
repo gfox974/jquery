@@ -45,6 +45,7 @@ div {
     text-align: center;
     width: 100%;
 }
+
 </style>
 <script>
 $(document).ready(function() {
@@ -93,10 +94,12 @@ $(document).ready(function() {
     // partie sample, exo
     $("#btn-simple").click(function(){
         $("#simple").animate({top:"100px"}, "slow"); // ici, l'element concerné descends de 100px par rapport a son top de depart
+        $("#btn-simple").addClass("cache"); // test, ajout de la classe caché
     });
 
     $("#btn-double").click(function(){
         $("#double").animate({top:"200px", left:"100px"}, "slow");
+        $("#btn-simple").removeClass("cache"); // test, retrait de la classe caché de btn1
     });
 
     $("#btn-agg").click(function(){
@@ -127,7 +130,12 @@ $(document).ready(function() {
             $("body").css({position:"absolute"}); // ici on change l'attribut de type de position
             $("body").animate({left:"-100%"},1000); // puis on anime
             $("body").animate({left:"0"},1000); 
-	});
+    });
+    // test addclass
+    $("#btn-simple").hover(function(){
+        $("#btn-simple").addClass("rouge");
+    });
+
 });
 // Todo :
 // utiliser 

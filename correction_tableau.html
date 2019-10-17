@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='http://code.jquery.com/jquery-latest.min.js'></script>
+    <title>Tableau</title>
+    <script>
+        let varTableau = []; // le type de la variable 'tableau' est Array
+        for(i=0; i<10; i++){
+            varTableau[i] = i + 1;
+            console.log(i, varTableau[i]);
+        }
+
+        $(document).ready(function(){
+            for(j=0; j<10; j++){
+                $("table tr").append("<td>" + varTableau[j] + "</td>");
+            }
+
+            $("table").append("<tr></tr>");
+
+            for(k=0; k<10; k++){
+                $("table tr:eq(1)").append("<td>" + varTableau[k] * 2 + "</td>");
+            }
+
+
+        });
+
+    </script>
+
+</head>
+<body>
+    <table border=1>
+        <tr></tr>            
+    </table>
+</body>
+</html>
