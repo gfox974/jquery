@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Droppable</title>
+    <script src='http://code.jquery.com/jquery-latest.min.js'></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        body{ height: 2000px; }
+        h1{ color: #1E90FF; }
+        #adversaire img { margin-top: 30px; }
+        img:hover{ cursor: grab; }
+        #joueur{ float: left; margin-left: 100px; }
+        #adversaire { line-height: 200px; width: 200px; height: 200px; text-align: center; 
+            border: 2px solid; float: right; margin: 200px 150px 0 0; border-radius: 4px;
+        }
+        .cache { display:none };
+    </style>
+    <script>
+
+        function aleatoire(){
+            return Math.floor(Math.random() * 3);
+        }
+  
+        let tblSrc = [ "img/pierre.jpg", "img/feuille.jpg", "img/ciseaux.jpg" ];
+        
+        $(function(){
+            $("button").click(function() {
+                $("#adversaire img").attr("src", tblSrc[ aleatoire() ]);
+            });
+
+            $("img").mousedown(function(){ $(this).css({ cursor: "grabbing"}); });
+            $("img").mouseup(function(){ $(this).css({ cursor: "grab"}); });
+            $("#pierre").draggable({ revert: "invalid" });
+            $("#feuille").draggable({ revert: "invalid" });
+            $("#ciseaux").draggable({ revert: "invalid" });
+
+            $("#adversaire").droppable({
+                accept: "#feuille, #pierre, #ciseaux",
+                drop: function(evenement, element) {
+                    $(this).find("img").show();
+                    let choixAdversaire = $(this).find("img").attr("src");
+                    choixAdversaire = choixAdversaire.replace("img/", "").replace(".jpg", "");
+                    // au départ,               =>  choixAdversaire = "img/ciseaux.jpg"
+                    // après le 1er replace()   =>  choixAdversaire = "#ciseaux.jpg"
+                    // après le 2ième replace() => choixAdversaire = "#ciseaux"
+                    let choixJoueur = element.draggable.attr("id");
+console.log(choixJoueur, choixAdversaire);
+                    if(choixAdversaire == choixJoueur) {
+                        alert("Egalité");
+                    } else {
+                        switch(choixAdversaire){
+                            case "pierre" :
+                                if(choixJoueur == "feuille") {
+                                    alert("Gagné");
+                                } else {
+                                    alert("Perdu ");
+                                }
+                            break;
+
+                            case "ciseaux" :
+                                if(choixJoueur == "pierre") {
+                                    alert("Gagné");
+                                } else {
+                                    alert("Perdu ");
+                                }
+                            break;
+
+                            case "feuille" :
+                                if(choixJoueur == "ciseaux") {
+                                    alert("Gagné");
+                                } else {
+                                    alert("Perdu ");
+                                }
+                            break;
+                        } 
+                    }
+
+                    // if(element.draggable.is("#pierre")){
+                    //     alert("T'as gagné !");
+                    // } else {
+                    //     alert("T'as perdu");
+                    // }
+                    element.draggable.draggable("option", "revert", true);
+                    // alert("Element accepté");
+                    let rollIt = Math.round((Math.random() * 2)); // Ici on tire un flottant aleatoire entre 0 et 2, arrondi au superieur, puis on le multiplie pour en faire un entier ( resultat entre 0 et 3 donc)
+                    const corresp = {0:'pierre',1:'feuille',2:'ciseaux'}; // ici on definit un dictionnaire clé/valeur pour etablir une correspondance entre un entier et une chaine
+                    console.log("debug: src rolled =", `./img/${corresp[rollIt]}.jpg`);
+                    $(this).find("img").hide();
+                    $(this).find("img").attr("src",`./img/${corresp[rollIt]}.jpg`);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>jQuery UI : Droppable <button>Nouvelle partie</button></h1>
+    <div id="joueur">
+        <img id="pierre" src="img/pierre.jpg">
+        <img id="feuille" src="img/feuille.jpg">
+        <img id="ciseaux" src="img/ciseaux.jpg">
+    </div>
+    <div id="adversaire">
+        <img src="img/ciseaux.jpg" class="cache">
+    </div>
+</body>
+</html>
