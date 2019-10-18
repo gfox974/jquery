@@ -60,7 +60,7 @@
                 revert: "invalid"
             });
 
-            $("#adversaire").droppable({
+            $("#adversaire").droppable({ // la methode drop permet de declencher des instructions sous conditions
                 accept: "#feuille, #pierre",
                 drop: function(){
                     alert("Element accepté");
