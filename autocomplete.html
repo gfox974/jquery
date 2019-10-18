@@ -15,7 +15,7 @@
         $("#mots").autocomplete({
             source: motsCles
         });
-
+        // recuperer et utiliser l'etat d'une checkbox
         $("#btCheck").click(function() {
             let msg;
             if($("#chk").is(":checked")){
@@ -25,6 +25,9 @@
             }
             alert(msg);
         });
+
+        // resizeable
+        $("#ajuster").resizable();
 
         });
     </script>
@@ -36,9 +39,12 @@
     <label for="mots">Mots: </label>
     <input id="mots">
 </div> 
-
+<hr>
 <input type="checkbox" id="chk">
 <button id="btCheck">Check</button>
-
+<hr>
+<div id="ajuster" class="ui-widget-content">
+    <h5 class="ui-widget-header">Resizable</h5>
+</div>
 </body>
 </html>
