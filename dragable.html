@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <title>test jquery ui - drag</title>
+</head>
+
+<style>
+    body {
+        height: 2000px;
+    }
+    h1 {
+        color: aqua;
+    }
+    img {
+        cursor: grab;
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        $("img[id ^= 'cheval']").draggable();
+
+        $("img").mousedown(function() {
+            $(this).css("cursor","grabbing");            
+        });
+
+        $("img").mouseup(function() {
+            $(this).css("cursor","grab");            
+        });
+
+        $("#cheval01").draggable({snap: "#cheval02, #cheval03", snapMode: "outer"});
+        
+
+        $("img[id ^= 'cheval']").draggable({snap: true, snapMode: "outer"});
+    });
+</script>
+
+<body>
+    <h1>JQuery UI : Draggable</h1>
+    <img id="cheval01" src="./img/cheval_01.jpg" alt="Morceau 1">;
+    <img id="cheval02" src="./img/cheval_02.jpg" alt="Morceau 2">;
+    <img id="cheval03" src="./img/cheval_03.jpg" alt="Morceau 3">;
+    <img id="cheval04" src="./img/cheval_04.jpg" alt="Morceau 4">;
+    <img id="cheval05" src="./img/cheval_05.jpg" alt="Morceau 5">;
+    <img id="cheval06" src="./img/cheval_06.jpg" alt="Morceau 6">;
+    <img id="cheval07" src="./img/cheval_07.jpg" alt="Morceau 7">;
+    <img id="cheval08" src="./img/cheval_08.jpg" alt="Morceau 8">;
+    <img id="cheval09" src="./img/cheval_09.jpg" alt="Morceau 9">;
+</body>
+</html>
