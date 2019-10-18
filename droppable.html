@@ -67,6 +67,15 @@
                 }
             });
 
+            $("#btn").click(function() {
+                let rollIt = Math.round((Math.random() * 2)); // Ici on tire un flottant aleatoire entre 0 et 2, arrondi au superieur, puis on le multiplie pour en faire un entier ( resultat entre 0 et 3 donc)
+                const corresp = {0:'pierre',1:'feuille',2:'ciseaux'}; // ici on definit un dictionnaire clé/valeur pour etablir une correspondance entre un entier et une chaine
+                $("#adversaire img").attr({
+                    id: corresp[rollIt], // là on change l'id par la chaine qui corresponds au tirage dans le dic (à modif, va poser prob avec doublons si id pas modifié)
+                    src: `./img/${corresp[rollIt]}.jpg` // ici on modifie une partie du path des ressources via une interpolation de variable
+                });            
+            });
+
         });
     </script>
 
@@ -80,6 +89,9 @@
     <img id="feuille" src="./img/feuille.jpg">
     <img id="ciseaux" src="./img/ciseaux.jpg">
 </div>
+
+<!-- bouton roll, onclick attribut image adversaire change de facon aleatoire -->
+<button id="btn">Roll !</button>
 
 <div id="adversaire">
     <img id="ciseaux" src="./img/ciseaux.jpg">
