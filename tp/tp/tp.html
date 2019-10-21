@@ -34,15 +34,15 @@
                     hauteur = parseInt(hauteur);
                 $(this).css("width", (largeur + 20) + "px");
                 $(this).css("height", (hauteur + 20) + "px");
-                // ou $(this).css("width", '+= 20px');
+                // ou $(this).css("width", `+= 20px`);
             });
             // TP2, 3)
-            $("#color").change(function (){
+            $("#color").on('change', (function (){ // cette variante de la gestion d'event n'est pas recommandée hors element crée dynamiquement
                 //let color = document.getElementById("color").value; - autre methode, ici on recupere la proprieté de l'objet
-                let color = $(this).val(); // tandis qu'ici on recupere une valeur d'attribut via une fonction
+                //let color = $(this).val(); // tandis qu'ici on recupere une valeur d'attribut via une fonction
                 //console.log("debug:",color);
-                $("body").css("background-color", color);
-            });
+                $("body").css("background-color", $(this).val());
+            }));
 
         });
     </script>
