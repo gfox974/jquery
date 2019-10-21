@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='http://code.jquery.com/jquery-latest.min.js'></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <title>Document</title>
+
+    <style>
+    .bleu {
+        background-color: blue;
+        height: 100px;
+        width: 100px;
+    }
+
+    .vert {
+        background: green;
+    }
+
+    </style>
+    <script>
+        $(document).ready(function() {
+            // TP2, 1)
+            $("button").click(function (){
+                $(".bleu").toggleClass("vert");
+            });
+            // TP2, 2)
+            $("img").click(function (){
+                let largeur = $(this).css("width");
+                let hauteur = $(this).css("height");
+                    largeur = parseInt(largeur);
+                    hauteur = parseInt(hauteur);
+                $(this).css("width", (largeur + 20) + "px");
+                $(this).css("height", (hauteur + 20) + "px");
+                // ou $(this).css("width", '+= 20px');
+            });
+            // TP2, 3)
+            $("#color").change(function (){
+                //let color = document.getElementById("color").value; - autre methode, ici on recupere la proprieté de l'objet
+                let color = $(this).val(); // tandis qu'ici on recupere une valeur d'attribut via une fonction
+                //console.log("debug:",color);
+                $("body").css("background-color", color);
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h1>TP</h1>
+    <!-- TP2, 1) -->
+    <h2>Exo 1</h2>
+    <div class="bleu"> BLEU </div>
+    <button> Change </button>
+    <div> div misc </div>
+    <h3>Exo 2</h3>
+    <!-- TP2, 2) -->
+    <img src="./img/img1.jpg" alt="">
+    <h4>Exo 3</h4>
+    <!-- TP2, 3) 
+    <input type="color" name="Couleur" id="color" onchange="actualize()"> TEST acquisition valeur --> 
+    <input type="color" name="Couleur" id="color">
+
+<script>
+//            function actualize() {
+  //              let newcolor = document.getElementById("color").value;
+    //            console.log(newcolor);
+      //      };
+</script>
+
+</body>
+</html>
